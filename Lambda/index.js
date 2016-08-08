@@ -4,7 +4,6 @@ exports.handler = (event, context, callback) => {
     var nodemailer = require('nodemailer');
 
     // create reusable transporter object using the default SMTP transport
-    //var transporter = nodemailer.createTransport('smtp://atilla.topo07%40gmail.com:123456Abc@smtp.gmail.com:465');
     var transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
