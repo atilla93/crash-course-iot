@@ -1,0 +1,9 @@
+{
+  "name": "mehdi",
+  "description": "",
+  "version": "0.0.0",
+  "main": "main.js",
+  "dependencies": {
+      "nodemailer":"latest"
+  }
+}
