@@ -1,3 +1,4 @@
+// Plug Grove - Temperature&Humidity(High quality) to i2c port
 var sensor1 = require('jsupm_th02');
 var th02 = new sensor1.TH02();
 
@@ -12,11 +13,6 @@ var reported_state = {"Temperature":temp, "Humidity": humi};
 
 // Client token value returned from thingShadows.update() operation//app deps
 const thingShadow = require('./node_modules/aws-iot-device-sdk/thing');
-
-// Plug Grove - Temperature&Humidity(High quality) to i2c port
-
-var sensor1 = require('jsupm_th02');
-var th02 = new sensor1.TH02();
 
 var awsIot = require('aws-iot-device-sdk');
 
