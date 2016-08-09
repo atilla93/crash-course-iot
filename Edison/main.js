@@ -1,21 +1,22 @@
 // Plug Grove - Temperature&Humidity(High quality) to i2c port
+// On importe la bibliothèque du capteur de température et d'humidité TH02 puis on le déclare
 var sensor1 = require('jsupm_th02');
 var th02 = new sensor1.TH02();
 
+// On importe la bibliothèque de l'écran LCD puis on le déclare
 var lcd = require('jsupm_i2clcd');
 var display = new lcd.Jhd1313m1(0, 0x3E, 0x62);
+// On affiche "init" à l'écran
 display.write("init");
 
-// Simulate device value
-var temp = 24.00;
-var humi = 50;
-var reported_state = {"Temperature":temp, "Humidity": humi};
-
-// Client token value returned from thingShadows.update() operation//app deps
+// Client token value returned from thingShadows.update() operation
+// On importe la bibliothèque de thingShadow
 const thingShadow = require('./node_modules/aws-iot-device-sdk/thing');
 
+// On importe la bibliothèque AWS IoT
 var awsIot = require('aws-iot-device-sdk');
 
+// Répertoire contenant les certificats (sur le thing)
 var rootDir = '/home/root/.node_app_slot/certificat/'
 
 var thingShadows = awsIot.thingShadow({
@@ -26,9 +27,7 @@ var thingShadows = awsIot.thingShadow({
     region: 'eu-central-1'
 });
 
-//
 // Client token value returned from thingShadows.update() operation
-//
 var clientTokenUpdate;
 
 var thingName = "Edison";
@@ -67,26 +66,20 @@ thingShadows.on('timeout', function(thingName, clientToken) {
     //
 });
 
+// Cette fonction va lire les données du capteur TH02 puis affiché la température sur l'écran
 function readSensor(callback){
     temp = th02.getTemperature();
     humi = th02.getHumidity();
-
-    console.log(temp);
-    console.log(humi);
-
     display.setCursor(0,0);
     display.write(temp.toFixed(2).toString());
-
     callback();
 };
 
+// Cette fonction va envoyer les données sur AWS IoT
 function sendData(){
     var reported_state = {"Temperature":temp, "Humidity": humi};
-    var relayTH02State = {"state":{desired: reported_state}};  // Use desired attribute can receive delta
-    // More info refer to http://docs.aws.amazon.com/iot/latest/developerguide/thing-shadow-mqtt.html#update-pub-sub-message
-
-    clientTokenUpdate = thingShadows.update(thingName, relayTH02State);
-
+    var desired = {"state":{desired: reported_state}};  // Use desired attribute can receive delta
+    clientTokenUpdate = thingShadows.update(thingName, desired);
     if (clientTokenUpdate === null)
     {
        console.log('update shadow failed, operation still in progress');
