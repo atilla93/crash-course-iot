@@ -19,6 +19,9 @@ var awsIot = require('aws-iot-device-sdk');
 // Répertoire contenant les certificats (sur le thing)
 var rootDir = '/home/root/.node_app_slot/certificat/'
 
+// Toutes les explications de la bibliothèque aws-iot-device-sdk
+// sont données en détail dans le readme du git du package
+// https://github.com/aws/aws-iot-device-sdk-js
 var thingShadows = awsIot.thingShadow({
     keyPath: rootDir + 'iot.pem',
     certPath: rootDir + 'cert.pem',

@@ -19,3 +19,5 @@ Connecter l'intel Edison à l'ordinateur, puis téléverser le projet sur la car
 Lambda:</br>
 Rendez vous sur la console Lambda d'AWS, puis créer une nouvelle fonction nodeJS.</br>
 Téléversez le code dans la fonction puis liez votre règle AWS IoT à votre fonction Lambda.</br>
+
+## Schéma d'architecture
