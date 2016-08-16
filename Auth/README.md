@@ -9,9 +9,11 @@
 
 ## Réalisation
 
+Une fois connecté au thing, il vous faudra installer Python package manager.
 
 ```
-test
+curl https://bootstrap.pypa.io/ez_setup.py -o - | python
+easy_install pip
 ```
 
 ```
