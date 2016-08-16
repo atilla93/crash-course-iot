@@ -1,25 +1,18 @@
-# Crash course IoT
+# Gestion de l'authentification
 
-## Introduction
+## Différentes étapes
 
-Ceci est le repo contenant "notre solution" pour le cas d'utilisation du Crash Course IoT.
+Étape 1: Se connecter au thing en SSH.
+Étape 2: Installer AWS CLI sur le thing.
+Étape 3: Se connecter à AWS.
+Étape 4: Générer les certificats.
 
-## Code
+## Réalisation
 
-Le fichier Edison contient le code allant sur l'Intel Edison. </br>
-Le fichier Lambda contient le code allant sur AWS Lambda.
+```
+test
+```
 
-## Déploiement
-
-Edison:</br>
-Créer un nouveau projet sur le XDK Intel IoT, y importer le code Edison du git et tout les fichiers liés à l'authentification (certificats, polices, clés). </br>
-Modifier le chemin d'accès aux fichiers d'authentification dans le code.</br>
-Connecter l'intel Edison à l'ordinateur, puis téléverser le projet sur la carte.</br></br>
-
-Lambda:</br>
-Rendez vous sur la console Lambda d'AWS, puis créer une nouvelle fonction nodeJS.</br>
-Téléversez le code dans la fonction puis liez votre règle AWS IoT à votre fonction Lambda.</br>
-
-## Schéma d'architecture
-
-![Architecture](/images/architecture-iot.png)
+```
+test 2
+```
