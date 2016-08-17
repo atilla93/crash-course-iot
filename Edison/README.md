@@ -8,6 +8,6 @@ Vous pouvez dans un premier temps créer un nouveau projet dans le XDK Intel à 
 
 ## Différentes étapes de la création du code
 
-1- Import différentes bibliothèques + déclaration variables.
-2- thingShadow + certificats
-3- Fonctions
+1- Import différentes bibliothèques + déclaration variables. </br>
+2- thingShadow + certificats </br>
+3- Fonctions </br>
